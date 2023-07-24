@@ -14,7 +14,18 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Button, Input } from "react-native-elements";
 import Toggle from "react-native-toggle-element";
-
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 import { YouTubeStandaloneAndroid } from "react-native-youtube";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
@@ -22,6 +33,18 @@ import * as actions from "./actions/jsonfeedscreen.action";
 export default function AccountEmailSettingScreen(props) {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const pageName = "home" | "RenderMyListView" | "ListView" | "";
 
   const jsonReducer = useSelector((state) => state.jsonReducer);
@@ -359,7 +382,7 @@ export default function AccountEmailSettingScreen(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -408,7 +431,7 @@ export default function AccountEmailSettingScreen(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx
               </Text>
               <View
@@ -444,7 +467,7 @@ export default function AccountEmailSettingScreen(props) {
             // marginBottom: 700,
           }}
         >
-          <Text style={{ fontSize: 25, fontWeight: "700", color: "#fff" }}>
+          <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 25, fontWeight: "700", color: "#fff" }}>
             Setting
           </Text>
         </View>
@@ -461,7 +484,7 @@ export default function AccountEmailSettingScreen(props) {
           <View
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
           >
-            <Text style={{ color: "#AE0000", fontSize: 22 }}>Change Email</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin', color: "#AE0000", fontSize: 22 }}>Change Email</Text>
           </View>
           <View style={{ flex: 1, marginTop: 30, paddingHorizontal: 50, }}>
             <Input

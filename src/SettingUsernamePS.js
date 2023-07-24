@@ -11,6 +11,18 @@ import {
 import {Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 const ComponetElement = ({hint, onValueChanged, inputType, isPassword, iconName}) => {
   return (
@@ -44,7 +56,18 @@ export default function SettingUsernamePSScreen({navigation}) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
-  
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
   React.useEffect(() => {
     setNavigationOption();
   });
@@ -136,7 +159,7 @@ export default function SettingUsernamePSScreen({navigation}) {
             borderRadius: 5,
             backgroundColor: '#373737', 
             borderRadius: 7}} title="Save" onPress={onSubmit}>
-            <Text style={{color: '#F1F1F1', fontWeight: '800'}}>Save</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin',color: '#F1F1F1', fontWeight: '800'}}>Save</Text>
           </TouchableOpacity>
         </View>
       </View>

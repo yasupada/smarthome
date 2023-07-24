@@ -13,11 +13,36 @@ import {
 import { YouTubeStandaloneAndroid } from "react-native-youtube";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
+import { LinearGradient } from 'expo-linear-gradient';
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 export default function HomeMenuScreen(props) {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
   const pageName = "home" | "RenderMyListView" | "ListView" | "";
 
   const jsonReducer = useSelector((state) => state.jsonReducer);
@@ -410,7 +435,7 @@ export default function HomeMenuScreen(props) {
         resizeMethod={"scale"}
         style={{
           // flex: 1,
-          height: 200,
+          height: 150,
           // backgroundColor: 'red'
         }}
         source={require("./assets/custome/header-home.png")}
@@ -468,7 +493,7 @@ export default function HomeMenuScreen(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx
               </Text>
               <View
@@ -486,7 +511,7 @@ export default function HomeMenuScreen(props) {
       </ImageBackground>
       <ScrollView
         // scrollsToTop={false}
-        contentOffset={{ x: 0, y: 150 }}
+        contentOffset={{ x: 0, y: 0 }}
         style={{
           position: "absolute",
           top: 90,
@@ -785,7 +810,7 @@ export default function HomeMenuScreen(props) {
               }}
               style={{ flexDirection: "row" }}
             >
-              <Text style={{ textDecorationLine: "underline" }}>View all</Text>
+              <Text style={{ fontFamily: 'Inter_100Thin', textDecorationLine: "underline" }}>View all</Text>
               <Text>{" > "}</Text>
             </TouchableOpacity>
           </View>
@@ -847,9 +872,9 @@ export default function HomeMenuScreen(props) {
                           borderRadius: "50%",
                         }}
                       />
-                      <Text
+                      <Text numberOfLines={1} ellipsizeMode={'tail'}
                         style={{
-                          paddingLeft: 10,
+                          paddingLeft: 5,
                           paddingTop: 16,
                           color: "#826464",
                         }}
@@ -885,7 +910,10 @@ export default function HomeMenuScreen(props) {
                 style={{ width: 20, height: 20, marginRight: 5 }}
                 source={require("./assets/custome/home-hart-light-on.png")}
               />
-              <Text style={{ textDecorationLine: "underline" }}>Favorite</Text>
+              <Text style={{ fontFamily: 'Inter_100Thin', 
+                fontFamily: 'Inter-Bold',
+                textDecorationLine: "underline" 
+                }}>Favorite</Text>
             </TouchableOpacity>
           </View>
           <View
@@ -922,10 +950,10 @@ export default function HomeMenuScreen(props) {
                       alignItems: "center",
                     }}
                   >
-                    <Text style={{ fontSize: 16, fontWeight: "600" }}>
+                    <Text numberOfLines={1} ellipsizeMode={'tail'} style={{ fontSize: 16, fontWeight: "600" }}>
                       {item.dataName}
                     </Text>
-                    <Text style={{ fontSize: 14 }}>Floor {index + 1}</Text>
+                    <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 14 }}>Floor {index + 1}</Text>
                   </TouchableOpacity>
                 );
               })}
@@ -939,26 +967,30 @@ export default function HomeMenuScreen(props) {
             justifyContent: 'center',
             alignItems: 'center',
             }}>
-            <View
+            <LinearGradient
+              colors={['#AA0000','#000000','#000000']}
+              // locations={[0.01]}
+              // start={[0.5]}
               style={{
-                backgroundColor: '#000',
-                height: 200,
-                borderRadius: 25,
+                // backgroundColor: '#000',
+                // ßheight: 200,
+                // borderRadius: 25,
                 paddingRight: 10, 
                 paddingTop: 10,
                 paddingBottom: 10
               }}
             >
+
               <Image
                 imageStyle={{ height: "100%", width: "100%" }}
                 source={require("./assets/custome/dashboard-energy-home.png")}
               />
               <View style={{ position: "absolute", top: 45, left: 55 }}>
-                <Text style={{ color: "#fff", textAlign: "center" }}>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#fff", textAlign: "center" }}>
                   9.00 Kw
                 </Text>
               </View>
-              <View style={{ position: "absolute", top: 133, left: 70 }}>
+              <View style={{ position: "absolute", top: 143, left: 70 }}>
                 <Text
                   style={{
                     color: "#05FF00",
@@ -971,25 +1003,25 @@ export default function HomeMenuScreen(props) {
               </View>
 
               <View style={{ position: "absolute", top: 165, left: 60 }}>
-                <Text style={{ color: "#fff", textAlign: "center" }}>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#fff", textAlign: "center" }}>
                   9.00 Kw
                 </Text>
               </View>
 
               <View style={{ position: "absolute", top: 170, left: 190 }}>
-                <Text style={{ color: "#fff", textAlign: "center" }}>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#fff", textAlign: "center" }}>
                   9.00 Kw
                 </Text>
               </View>
               <View style={{ position: "absolute", top: 45, right: 0 }}>
-                <Text style={{ color: "#fff", textAlign: "center" }}>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#fff", textAlign: "center" }}>
                   0.333 Kw
                 </Text>
               </View>
-            </View>
+            </LinearGradient>
           </View>
         </View>
-        <View style={{ marginBottom: 100 }} />
+        <View style={{ height: 100 }} />
       </ScrollView>
     </View>
   );
@@ -998,6 +1030,27 @@ export default function HomeMenuScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 200,
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
   },
   box: {
     width: 50,

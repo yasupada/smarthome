@@ -13,11 +13,35 @@ import {
 import { YouTubeStandaloneAndroid } from "react-native-youtube";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 export default function JsonViewAllScreen(props) {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const pageName = "home" | "RenderMyListView" | "ListView" | "";
 
   const jsonReducer = useSelector((state) => state.jsonReducer);
@@ -174,14 +198,14 @@ export default function JsonViewAllScreen(props) {
                 id: 1,
                 no: 1,
                 cclor: "blue",
-                dataText: " 15 °C ",
+                dataText: "15°C ",
                 enable: true,
               },
               {
                 id: 2,
                 no: 2,
                 cclor: "lightblue",
-                dataText: " 74% ",
+                dataText: "74%",
                 enable: true,
               },
             ],
@@ -198,15 +222,15 @@ export default function JsonViewAllScreen(props) {
               {
                 id: 1,
                 no: 1,
-                cclor: "green",
-                dataText: " 20 °C ",
+                cclor: "lightgreen",
+                dataText: "20°C ",
                 enable: true,
               },
               {
                 id: 2,
                 no: 2,
                 cclor: "lightblue",
-                dataText: " 74% ",
+                dataText: "74%",
                 enable: true,
               },
             ],
@@ -354,7 +378,7 @@ export default function JsonViewAllScreen(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -403,7 +427,7 @@ export default function JsonViewAllScreen(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx
               </Text>
               <View
@@ -437,7 +461,7 @@ export default function JsonViewAllScreen(props) {
             // marginBottom: 700,
           }}
         >
-          <Text style={{ fontSize: 25, fontWeight: "700", color: "#fff" }}>
+          <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 25, fontWeight: "700", color: "#fff" }}>
             Position
           </Text>
         </View>
@@ -461,7 +485,7 @@ export default function JsonViewAllScreen(props) {
                         // backgroundColor: "#fff",
                       }}
                     >
-                      <Text style={{fontSize: 20}}>{rootItem.name}</Text>
+                      <Text numberOfLines={1} ellipsizeMode={'tail'} style={{fontSize: 20}}>{rootItem.name}</Text>
                       <View
                         style={{
                           flex: 1,
@@ -471,7 +495,7 @@ export default function JsonViewAllScreen(props) {
                           paddingVertical: 10,
                           flexWrap: "wrap",
                           alignItems: "flex-start",
-                          // marginBottom: 130,
+                          marginBottom: 10,
                         }}
                       >
                         {rootItem.data.map((SubItem, SubIndex) => {
@@ -501,6 +525,7 @@ export default function JsonViewAllScreen(props) {
                                   width: "100%",
                                   height: "100%",
                                   // backgroundColor: 'green',
+                                  overflow: 'hidden',
                                   borderWidth: 1,
                                   borderColor: "#CB9696",
                                   borderRadius: 10,
@@ -517,10 +542,13 @@ export default function JsonViewAllScreen(props) {
                                   }}
                                 />
                                 <Text
+                                  numberOfLines={1} 
+                                  ellipsizeMode={'tail'}
                                   style={{
+                                    width: 95,
                                     position: "absolute",
                                     top: SubItem.detail.length > 0 ? 3 : 15,
-                                    left: 45,
+                                    left: 40,
                                     fontSize: 16,
                                     // paddingLeft: 10,
                                     // paddingTop: 16,
@@ -535,11 +563,12 @@ export default function JsonViewAllScreen(props) {
                                   position: "absolute",
                                   left: 50,
                                   top: 30,
-                                  width: "65%",
+                                  width: 80,
                                   flex: 1,
                                   flexDirection: "row",
                                   // backgroundColor: "yellow",
                                   justifyContent: "space-around",
+                                  overflow: 'hidden'
                                 }}
                               >
                                 {SubItem.detail != null &&
@@ -566,7 +595,15 @@ export default function JsonViewAllScreen(props) {
                                                     Sub3Item.cclor,
                                                 }}
                                               ></View>
-                                              <Text style={{ color: "#999" }}>
+                                              <Text 
+                                              numberOfLines={1} 
+                                              ellipsizeMode={'tail'} 
+                                              style={{ 
+                                                flex: 1,
+                                                color: "#999",
+                                                fontSize: 10,
+                                                paddingTop: 5,
+                                                }}>
                                                 {Sub3Item.dataText}
                                               </Text>
                                             </View>

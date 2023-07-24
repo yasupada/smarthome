@@ -18,6 +18,19 @@ import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { LinearGradient } from 'expo-linear-gradient';
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 const screenWidth = Dimensions.get("screen").width;
 const screenHeight = Dimensions.get("screen").height;
@@ -77,7 +90,7 @@ function JsonSettingAir(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -125,7 +138,7 @@ function JsonSettingAir(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx.A
               </Text>
               <View
@@ -145,7 +158,7 @@ function JsonSettingAir(props) {
         scrollsToTop={false}
         style={{
           height: "100%",
-          top: 100,
+          top: 50,
           // backgroundColor: 'green'
         }}
       >
@@ -153,7 +166,7 @@ function JsonSettingAir(props) {
         <View
           style={{
             flexDirection: "row",
-            // backgroundColor: "red",
+            backgroundColor: "red",
             height: 150,
           }}
         >
@@ -194,7 +207,7 @@ function JsonSettingAir(props) {
             }}
           >
             <View style={{ marginBottom: 10 }}>
-              <Text style={{ fontSize: 30 }}>27</Text>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 30 }}>27</Text>
             </View>
             <TouchableOpacity
               onPress={() => {
@@ -412,7 +425,7 @@ function JsonSettingLight(props) {
     <View
       style={[
         styles.container,
-        { flexDirection: "column", justifyContent: "flex-start" },
+        { flexDirection: "column", justifyContent: "flex-start", alignContent:'flex-start' },
       ]}
     >
       <ImageBackground
@@ -420,7 +433,7 @@ function JsonSettingLight(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -468,7 +481,7 @@ function JsonSettingLight(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx.L
               </Text>
               <View
@@ -502,7 +515,7 @@ function JsonSettingLight(props) {
               // marginBottom: 700,
             }}
           >
-            <Text style={{ fontSize: 25, fontWeight: "700", color: "#fff" }}>
+            <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 25, fontWeight: "700", color: "#fff" }}>
               Position
             </Text>
           </View>
@@ -527,8 +540,8 @@ function JsonSettingLight(props) {
                   paddingLeft: 30,
                 }}
               >
-                <Text style={{ color: "#6C6C6C" }}>Schedule</Text>
-                <Text style={{ color: "#826464", fontSize: 20 }}>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#6C6C6C" }}>Schedule</Text>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#826464", fontSize: 20 }}>
                   {" "}
                   {itemTemp.name}
                 </Text>
@@ -549,7 +562,7 @@ function JsonSettingLight(props) {
                     }}
                     source={require("./assets/custome/home-buttom-header.png")}
                   >
-                    <Text style={{ color: "#fff", fontWeight: "700" }}>
+                    <Text style={{ fontFamily: 'Inter_100Thin', color: "#fff", fontWeight: "700" }}>
                       + Add
                     </Text>
                   </ImageBackground>
@@ -616,19 +629,25 @@ function JsonSettingLight(props) {
       )}
 
       {actionMode === "new" ? (
-        <ScrollView
+        <LinearGradient
+          colors={['#AA0000','#000000','#AA0000',]}
+          locations={[]}
+          start={[0.01, 0.65]}
           scrollsToTop={false}
           style={{
-            height: "70%",
-            top: 0,
+            top: -15,
+            height: 500,
             backgroundColor: "#C8C8C8",
-            marginHorizontal: 10,
-            marginVertical: 10,
+            // marginHorizontal: 10,
+            // marginVertical: 10,
             borderRadius: 15,
             borderWidth: 0.1,
             borderColor: "#000",
+            padding:5,
+            marginHorizontal: 20,
           }}
         >
+          <View style={{flex: 1, backgroundColor: '#fff', borderRadius: 15,overflow: 'hidden'}}>
           <View
             style={{
               flexDirection: "row",
@@ -643,11 +662,11 @@ function JsonSettingLight(props) {
                 setActionMode("list");
               }}
             >
-              <Text style={{ color: "#000", fontSize: 20, fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', color: "#000", fontSize: 20, fontWeight: "400" }}>
                 Cancel
               </Text>
             </TouchableOpacity>
-            <Text style={{ color: "#AE0000", fontSize: 20, fontWeight: "400" }}>
+            <Text style={{ fontFamily: 'Inter_100Thin', color: "#AE0000", fontSize: 20, fontWeight: "400" }}>
               Create Schedule
             </Text>
             <TouchableOpacity
@@ -655,7 +674,7 @@ function JsonSettingLight(props) {
                 setActionMode("list");
               }}
             >
-              <Text style={{ color: "#000", fontSize: 20, fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', color: "#000", fontSize: 20, fontWeight: "400" }}>
                 Save
               </Text>
             </TouchableOpacity>
@@ -752,12 +771,16 @@ function JsonSettingLight(props) {
 
           <View
             style={{
-              height: 100,
+              height: 60,
               // backgroundColor: "red",
               flexDirection: "row",
               justifyContent: "space-between",
               marginHorizontal: 20,
               flexWrap: "nowrap",
+              borderTopColor:'#A5A5A5',
+              borderBottomColor: '#A5A5A5',
+              borderTopWidth: 1,
+              borderBottomWidth:1
             }}
           >
             <Text
@@ -824,9 +847,10 @@ function JsonSettingLight(props) {
                 ) : (
                   <TouchableOpacity
                     style={{
-                      // width: "100%",
                       alignSelf: 'center',
-                      height: 100,
+                      height: dateDay.filter((item, index) => {
+                        return item.checked === true;
+                      }).length > 0 ? 100 : 50,
                       // backgroundColor: 'blue',
                       justifyContent: "center",
                       alignItems: "center",
@@ -835,7 +859,7 @@ function JsonSettingLight(props) {
                       setShowDateSelect(!showDateSelect);
                     }}
                   >
-                    <Text style={{textAlign: 'center'}}>Please Select Day</Text>
+                    <Text style={{ fontFamily: 'Inter_100Thin',textAlign: 'center'}}>Please Select Day</Text>
                   </TouchableOpacity>
                 )}
               </Text>
@@ -924,7 +948,8 @@ function JsonSettingLight(props) {
               <></>
             )}
           </View>
-        </ScrollView>
+          </View>
+        </LinearGradient>
       ) : (
         <></>
       )}
@@ -933,6 +958,19 @@ function JsonSettingLight(props) {
 }
 
 export default function JsonViewScheduleScreen(props) {
+
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const pageName = "home" | "RenderMyListView" | "ListView" | "";
 
   const { SubItem } = props.route.params;

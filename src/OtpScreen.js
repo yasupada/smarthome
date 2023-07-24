@@ -14,12 +14,36 @@ import {
   NavigationActions,
   StackActions,
 } from "@react-navigation/native";
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
 
 export default function OtpScreen(props) {
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const [otpCode, setOtpCode] = useState({
     pad1: null,
     pad2: null,
@@ -110,8 +134,8 @@ export default function OtpScreen(props) {
           }}
         >
           <View style={{flexDirection: 'column', justifyContent: 'flex-start'}}>
-          <Text style={{color: '#595959', textAlign: 'left', fontSize: 10}}>    Code is sent to email</Text>
-          <Text style={{color: '#595959', fontSize: 10}}>You’ll receive 4 digit code to verify next.</Text>
+          <Text style={{ fontFamily: 'Inter_100Thin',color: '#595959', textAlign: 'left', fontSize: 10}}>    Code is sent to email</Text>
+          <Text style={{ fontFamily: 'Inter_100Thin',color: '#595959', fontSize: 10}}>You’ll receive 4 digit code to verify next.</Text>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-around', marginHorizontal: 10, marginVertical: 20}}>
             {[0,1,2,3].map((item, index) => {
@@ -140,7 +164,7 @@ export default function OtpScreen(props) {
           </View>
 
           <View style={{flexDirection: 'column', justifyContent: 'flex-start'}}>
-            <Text style={{textAlign: 'left', color: '#595959',fontSize: 10}}>Didn’t you receive code? Request again.</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin',textAlign: 'left', color: '#595959',fontSize: 10}}>Didn’t you receive code? Request again.</Text>
           </View>
         </View>
 
@@ -172,7 +196,7 @@ export default function OtpScreen(props) {
               props.navigation.navigate("UsernamePS");
             }}
           >
-            <Text style={{ color: "#FFF", fontWeight: "600" }}>Submit</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin', color: "#FFF", fontWeight: "600" }}>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>

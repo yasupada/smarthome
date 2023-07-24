@@ -19,12 +19,35 @@ import { useSelector, useDispatch } from "react-redux";
 import { Avatar, Button } from "react-native-elements";
 import * as loginActions from "./actions/login.action";
 import Svg, { Circle, SvgUri, SvgXml } from "react-native-svg";
-
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 import * as profileBg from "./assets/svg/profile-bg.svg";
 
 const ProfileScreen = (props) => {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const loginReducer = useSelector(({ loginReducer }) => loginReducer);
   const dispatch = useDispatch();
 
@@ -220,7 +243,7 @@ const ProfileScreen = (props) => {
       >
         <View style={{ flex: 1 }}></View>
         <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
-          <Text style={{ fontSize: 20, color: "#fff" }}>Knight Prx</Text>
+          <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff" }}>Knight Prx</Text>
           <View
             style={{
               width: 41,
@@ -312,9 +335,12 @@ const ProfileScreen = (props) => {
                                 overflow: "hidden",
                               }}
                             ></View>
-                            <Text style={{ flex: 1, marginLeft: 50 }}>
+                            <Text 
+                            numberOfLines={1} 
+                            ellipsizeMode={'tail'}
+                            style={{ flex: 1, marginLeft: 50 }}>
                               {" "}
-                              Name LastName
+                              Name LastName ppppppppppppppppppppppppp
                             </Text>
                             <TouchableOpacity
                               onPress={() => {
@@ -354,7 +380,7 @@ const ProfileScreen = (props) => {
                                         borderTopRightRadius: 3,
                                       }}
                                     >
-                                      <Text style={{ color: "#565656" }}>
+                                      <Text style={{ fontFamily: 'Inter_100Thin', color: "#565656" }}>
                                         + Invite
                                       </Text>
                                     </TouchableOpacity>
@@ -374,7 +400,7 @@ const ProfileScreen = (props) => {
                                         borderBottomEndRadius: 3,
                                       }}
                                     >
-                                      <Text style={{ color: "#565656" }}>
+                                      <Text style={{ fontFamily: 'Inter_100Thin', color: "#565656" }}>
                                         - Reject
                                       </Text>
                                     </TouchableOpacity>
@@ -437,9 +463,12 @@ const ProfileScreen = (props) => {
                         borderColor: "#000",
                       }}
                     ></View>
-                    <Text style={{ flex: 1, marginLeft: 50 }}>
+                    <Text 
+                    numberOfLines={1} 
+                    ellipsizeMode={'tail'}
+                    style={{ flex: 1, marginLeft: 50 }}>
                       {" "}
-                      Name LastName
+                      Name LastName xxxxxxxxxxxxxxxxxxxxx yyyyyyyy
                     </Text>
                     <TouchableOpacity
                       onLongPress={() => {
@@ -475,7 +504,7 @@ const ProfileScreen = (props) => {
                                 borderRadius: 8,
                               }}
                             >
-                              <Text style={{ color: "#565656" }}>
+                              <Text style={{ fontFamily: 'Inter_100Thin', color: "#565656" }}>
                                 <Image
                                   style={{ width: 15, height: 15 }}
                                   source={require("./assets/custome/binRed.png")}

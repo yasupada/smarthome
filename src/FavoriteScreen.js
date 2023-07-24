@@ -13,11 +13,35 @@ import {
 import { YouTubeStandaloneAndroid } from "react-native-youtube";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 export default function FavoriteScreen(props) {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
   const pageName = "home" | "RenderMyListView" | "ListView" | "";
 
   const jsonReducer = useSelector((state) => state.jsonReducer);
@@ -381,7 +405,7 @@ export default function FavoriteScreen(props) {
         resizeMethod={"scale"}
         style={{
           // flex: 1,
-          height: 200,
+          height: 150,
           // backgroundColor: 'red'
         }}
         source={require("./assets/custome/header-home.png")}
@@ -439,7 +463,7 @@ export default function FavoriteScreen(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx
               </Text>
               <View
@@ -461,10 +485,12 @@ export default function FavoriteScreen(props) {
           position: 'absolute',
           top: 90,
           height: screenHeight,
+          width: '100%',
           flex: 1,
         //   backgroundColor: 'green',
-          marginLeft: '3.5%',
-          marginTop: '25%'
+          // marginLeft: '3.5%',
+          paddingHorizontal: 50,
+          marginTop: '25%',
         }}
       >
 
@@ -472,16 +498,17 @@ export default function FavoriteScreen(props) {
             style={{
               flexDirection: "row",
               flexWrap: 'wrap',
-              justifyContent: "flex-start",
+              justifyContent: 'space-between',
               alignItems: 'center',
-            //   backgroundColor: 'red',
+              // backgroundColor: 'red',
+              paddingRight: 10,
             //   height: 76,
             }}
           >
             {
               getSampleListFour(0).data
               .filter((itm, idx) => {
-                return idx < 3
+                return idx < 2
               }).map((item, index) => {
                 return (
                   <TouchableOpacity
@@ -506,8 +533,8 @@ export default function FavoriteScreen(props) {
                       marginLeft: 10,
                     }}
                   >
-                    <Text style={{fontSize: 16, fontWeight: '600'}}>{item.dataName}</Text>
-                    <Text style={{fontSize: 14}}>Floor {index+1}</Text>
+                    <Text numberOfLines={1} ellipsizeMode={'tail'} style={{fontSize: 16, fontWeight: '600'}}>{item.dataName}</Text>
+                    <Text numberOfLines={1} ellipsizeMode={'tail'} style={{fontSize: 14}}>Floor {index+1}</Text>
                   </TouchableOpacity>
                 )
               })

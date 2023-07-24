@@ -15,7 +15,20 @@ import { Slider, Icon } from "react-native-elements";
 import { YouTubeStandaloneAndroid } from "react-native-youtube";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
-import { BackgroundImage } from "react-native-elements/dist/config";
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
+
+
 const screenWidth = Dimensions.get("screen").width;
 const screenHeight = Dimensions.get("screen").height;
 
@@ -74,7 +87,7 @@ function JsonSettingAir(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -122,7 +135,7 @@ function JsonSettingAir(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx.A
               </Text>
               <View
@@ -155,7 +168,7 @@ function JsonSettingAir(props) {
             // marginBottom: 700,
           }}
         >
-          <Text style={{ fontSize: 25, fontWeight: "700", color: "#fff" }}>
+          <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 25, fontWeight: "700", color: "#fff" }}>
             Position
           </Text>
         </View>
@@ -204,7 +217,7 @@ function JsonSettingAir(props) {
             }}
           >
             <View style={{ marginBottom: 10 }}>
-              <Text style={{ fontSize: 30 }}>27</Text>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 30 }}>27</Text>
             </View>
             <TouchableOpacity
               onPress={() => {
@@ -260,7 +273,7 @@ function JsonSettingAir(props) {
                       alignItems: "center",
                     }}
                   >
-                    <Text style={{ fontSize: 27, color: indexTempFocus === item ? "#39ACFF": "#826464" }}>{item}</Text>
+                    <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 27, color: indexTempFocus === item ? "#39ACFF": "#826464" }}>{item}</Text>
                   </View>
                   <View
                     style={{
@@ -372,7 +385,7 @@ function JsonSettingLight(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -420,7 +433,7 @@ function JsonSettingLight(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx.L
               </Text>
               <View
@@ -454,7 +467,7 @@ function JsonSettingLight(props) {
             // marginBottom: 700,
           }}
         >
-          <Text style={{ fontSize: 25, fontWeight: "700", color: "#fff" }}>
+          <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 25, fontWeight: "700", color: "#fff" }}>
             Position
           </Text>
         </View>
@@ -518,6 +531,17 @@ function JsonSettingLight(props) {
 
 export default function JsonViewAllScreen(props) {
   const pageName = "home" | "RenderMyListView" | "ListView" | "";
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
 
   const { SubItem } = props.route.params;
 

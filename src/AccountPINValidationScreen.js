@@ -14,7 +14,18 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Button, Input } from "react-native-elements";
 import Toggle from "react-native-toggle-element";
-
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 import { YouTubeStandaloneAndroid } from "react-native-youtube";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "./actions/jsonfeedscreen.action";
@@ -22,7 +33,18 @@ import * as actions from "./actions/jsonfeedscreen.action";
 export default function AccountPINValidationScreen(props) {
   const screenWidth = Dimensions.get("screen").width;
   const screenHeight = Dimensions.get("screen").height;
-
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const jsonReducer = useSelector((state) => state.jsonReducer);
   const loginReducer = useSelector((state) => state.loginReducer);
 
@@ -55,7 +77,7 @@ export default function AccountPINValidationScreen(props) {
         resizeMethod={"scale"}
         style={{
           flex: 1,
-          height: 200,
+          height: 150,
         }}
         source={require("./assets/custome/header-home.png")}
       >
@@ -104,7 +126,7 @@ export default function AccountPINValidationScreen(props) {
             <View
               style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
             >
-              <Text style={{ fontSize: 20, color: "#fff", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 20, color: "#fff", fontWeight: "400" }}>
                 Knight Prx
               </Text>
               <View
@@ -140,7 +162,7 @@ export default function AccountPINValidationScreen(props) {
             // marginBottom: 700,
           }}
         >
-          <Text style={{ fontSize: 25, fontWeight: "700", color: "#fff" }}>
+          <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 25, fontWeight: "700", color: "#fff" }}>
             {/* Setting PIN CODE */}
           </Text>
         </View>
@@ -157,7 +179,7 @@ export default function AccountPINValidationScreen(props) {
           <View
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
           >
-            {/* <Text style={{ color: "#AE0000", fontSize: 22 }}>PIN CODE</Text> */}
+            {/* <Text style={{ fontFamily: 'Inter_100Thin', color: "#AE0000", fontSize: 22 }}>PIN CODE</Text> */}
           </View>
           <View style={{ flex: 1, marginTop: 30 }}>
             <View
@@ -174,10 +196,10 @@ export default function AccountPINValidationScreen(props) {
                     paddingHorizontal: 50,
                   }}
                 >
-                  <Text style={{ fontSize: 22, fontWeight: "400" }}>
+                  <Text style={{ fontFamily: 'Inter_100Thin', fontSize: 22, fontWeight: "400" }}>
                     Account Authentication
                   </Text>
-                  <Text style={{ marginTop: 50 }}>
+                  <Text style={{ fontFamily: 'Inter_100Thin', marginTop: 50 }}>
                     We need to check whether your Email is valid to verify your
                     identity. Send verification code to email name
                     Knight@prx.com
@@ -202,7 +224,7 @@ export default function AccountPINValidationScreen(props) {
               {pinStatus == "setting" || pinStatus == "valid" ? (
                 <View>
                   <View>
-                    <Text style={{ textAlign: "center" }}>
+                    <Text style={{ fontFamily: 'Inter_100Thin', textAlign: "center" }}>
                       You’ll receive 4 digit code to verify next.
                     </Text>
                   </View>
@@ -232,10 +254,10 @@ export default function AccountPINValidationScreen(props) {
                     })}
                   </View>
                   <View style={{ paddingHorizontal: 65, marginTop: 16 }}>
-                    <Text style={{ textAlign: "right" }}>59s</Text>
+                    <Text style={{ fontFamily: 'Inter_100Thin', textAlign: "right" }}>59s</Text>
                   </View>
                   <View style={{ paddingHorizontal: 50, marginTop: 16 }}>
-                    <Text style={{ paddingLeft: 16 }}>
+                    <Text style={{ fontFamily: 'Inter_100Thin', paddingLeft: 16 }}>
                       Didn’t you receive code? Request again.
                     </Text>
                   </View>

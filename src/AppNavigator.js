@@ -36,7 +36,7 @@ const Stack = createStackNavigator();
 
 const RootStack = (props) => {
   return (
-    <Stack.Navigator initialRouteName="Otp">
+    <Stack.Navigator initialRouteName="Home">
       {props.showAuthen ? (
         <>
           <Stack.Screen

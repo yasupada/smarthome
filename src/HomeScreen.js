@@ -17,9 +17,33 @@ import {
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 export default function HomeScreen(props) {
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   const [account, setAccount] = useState({
     username: "",
     password: "",
@@ -181,9 +205,13 @@ export default function HomeScreen(props) {
             }}
           />
           <View>
-          <View style={{alignItems: 'flex-end'}}>
+          <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate('Otp')
+          }}
+          style={{alignItems: 'flex-end'}}>
           <Text>forgot password</Text>
-          </View>
+          </TouchableOpacity>
           </View>
           </View>
         </View>
@@ -202,7 +230,7 @@ export default function HomeScreen(props) {
             borderRadius: 5,
             backgroundColor: '#373737', 
             borderRadius: 7}} title="Login" onPress={onLogin}>
-            <Text style={{color: '#F1F1F1', fontWeight: '800'}}>Login</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin',color: '#F1F1F1', fontWeight: '800'}}>Login</Text>
           </TouchableOpacity>
         </View>
 
@@ -222,8 +250,8 @@ export default function HomeScreen(props) {
             borderRadius: 5,
           }}
         >
-          <Text style={{color: '#800000'}}>Or </Text>
-          <Text style={{color: '#800000'}}>Register</Text>
+          <Text style={{ fontFamily: 'Inter_100Thin',color: '#800000'}}>Or </Text>
+          <Text style={{ fontFamily: 'Inter_100Thin',color: '#800000'}}>Register</Text>
         </TouchableOpacity>
       </View>
 

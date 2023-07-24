@@ -14,14 +14,37 @@ import {
   NavigationActions,
   StackActions,
 } from "@react-navigation/native";
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
 
 export default function EmailScreen(props) {
   const [email, setEmail] = useState("");
-
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  
   checkEmail = async () => {
     const token = await AsyncStorage.getItem("email");
     if (token) {
@@ -183,7 +206,7 @@ export default function EmailScreen(props) {
               props.navigation.navigate("Otp");
             }}
           >
-            <Text style={{ color: "#FFF", fontWeight: "600" }}>Send OTP</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin', color: "#FFF", fontWeight: "600" }}>Send OTP</Text>
           </TouchableOpacity>
         </View>
       </View>

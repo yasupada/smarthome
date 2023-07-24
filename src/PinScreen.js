@@ -17,9 +17,33 @@ import {
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { BackgroundImage } from "react-native-elements/dist/config";
+
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 export default function PinScreen(props) {
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
   const [account, setAccount] = useState({
     username: "",
     password: "",
@@ -215,11 +239,11 @@ export default function PinScreen(props) {
                   setPinStatus("setting");
                 }}
               >
-                <Text style={{ color: "#000", fontWeight: "400" }}>
+                <Text style={{ fontFamily: 'Inter_100Thin', color: "#000", fontWeight: "400" }}>
                   Setting Pin
                 </Text>
               </TouchableOpacity>
-              <Text style={{ color: "#000", alignSelf: "center" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', color: "#000", alignSelf: "center" }}>
                 Next {">"}
               </Text>
             </>
@@ -258,7 +282,7 @@ export default function PinScreen(props) {
                 }, 3000);
               }}
             >
-              <Text style={{ color: "#000", fontWeight: "400" }}>
+              <Text style={{ fontFamily: 'Inter_100Thin', color: "#000", fontWeight: "400" }}>
                 Confirm Pin
               </Text>
             </TouchableOpacity>

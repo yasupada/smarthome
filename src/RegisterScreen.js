@@ -11,6 +11,18 @@ import {
 import {Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from '@expo-google-fonts/inter';
 
 const ComponetElement = ({hint, onValueChanged, inputType, isPassword, iconName}) => {
   return (
@@ -38,6 +50,18 @@ const ComponetElement = ({hint, onValueChanged, inputType, isPassword, iconName}
 };
 
 export default function RegisterScreen({navigation}) {
+  const [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
   const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -158,7 +182,7 @@ export default function RegisterScreen({navigation}) {
             borderRadius: 5,
             backgroundColor: '#373737', 
             borderRadius: 7}} title="Register" onPress={onSubmit}>
-            <Text style={{color: '#F1F1F1', fontWeight: '800'}}>register</Text>
+            <Text style={{ fontFamily: 'Inter_100Thin',color: '#F1F1F1', fontWeight: '800'}}>register</Text>
           </TouchableOpacity>
         </View>
       </View>
